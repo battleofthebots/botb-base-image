@@ -10,6 +10,9 @@ RUN apt-get update &&\
  nmap netcat-openbsd socat iproute2 iputils-ping\
  # Client applications
  openssh-client telnet ftp curl wget &&\
- pip3 install paramiko requests aiohttp urllib3\
+ pip3 install paramiko requests aiohttp urllib3 flask\
  pyyaml scapy impacket pwntools cryptography pycryptodome &&\
  useradd -m -u 1000 user
+
+RUN mkdir /usr/share/wordlists
+COPY ./rockyou-20.txt /usr/share/wordlists/rockyou.txt
