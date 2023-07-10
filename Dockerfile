@@ -16,3 +16,4 @@ RUN apt-get update &&\
 
 RUN mkdir /usr/share/wordlists
 COPY ./rockyou-20.txt /usr/share/wordlists/rockyou.txt
+RUN chmod 755 /usr/share/wordlists/rockyou.txt
