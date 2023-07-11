@@ -12,6 +12,7 @@ To use this image
 The latest version of `botb-base` is based on the `ubuntu 20.04`, has a default user (`user`) with `uid=1000`, and contains the following packages:
 
 ### From apt
+- python3
 - python3-pip
 - build-essential
 - default-jre
@@ -37,3 +38,4 @@ The latest version of `botb-base` is based on the `ubuntu 20.04`, has a default 
 - pwntools
 - cryptography
 - pycryptodome
+- flask
