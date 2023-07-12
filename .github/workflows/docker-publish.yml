@@ -68,11 +68,11 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ghcr.io/battleofthebots/botb-base-image:latest
-            ghcr.io/battleofthebots/botb-base-image:ubuntu
-            ghcr.io/battleofthebots/botb-base-image:ubuntu-20.04
-            ghcr.io/battleofthebots/botb-base-image:ubuntu-defcon-2023
-            ghcr.io/battleofthebots/botb-base-image:ubuntu-20.04-defcon-2023
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:ubuntu
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:ubuntu-20.04
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:ubuntu-defcon-2023
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:ubuntu-20.04-defcon-2023
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
