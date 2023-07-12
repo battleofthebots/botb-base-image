@@ -7,7 +7,7 @@ RUN apt-get update &&\
  # Language support
  python3 python3-pip build-essential default-jre\
  # Network tools
- nmap netcat-openbsd socat iproute2 iputils-ping\
+ nmap ncat netcat-openbsd socat iproute2 iputils-ping\
  # Client applications
  openssh-server telnet ftp curl wget &&\
  pip3 install paramiko requests aiohttp urllib3 flask\
