@@ -9,8 +9,8 @@ RUN apt-get update &&\
  # Network tools
  nmap ncat netcat-openbsd socat iproute2 iputils-ping\
  # Client applications
- openssh-server telnet ftp curl wget &&\
- pip3 install paramiko requests aiohttp urllib3 flask\
+ openssh-server telnet ftp curl wget zip &&\
+ pip3 install paramiko requests aiohttp urllib3 flask pyminizip\
  pyyaml scapy impacket pwntools cryptography pycryptodome &&\
  useradd -m -u 1000 user
 
