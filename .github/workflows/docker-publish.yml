@@ -76,3 +76,20 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+  ecr-deploy:
+    needs: build
+    runs-on: self-hosted
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      # Runs a single command using the runners shell
+      - name: Docker tag & Push for ECR
+        run: |
+          REGION=us-east-1;
+          ACCOUNT=$(aws sts get-caller-identity | jq -r '.Account');
+          aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT.dkr.ecr.$REGION.amazonaws.com;
+
+          docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest $ACCOUNT.dkr.ecr.$REGION.amazonaws.com/battleofthebots:`basename init`;
+
+          docker push $ACCOUNT.dkr.ecr.$REGION.amazonaws.com/battleofthebots:`basename init`
