@@ -12,7 +12,9 @@ RUN apt-get update &&\
  openssh-server telnet ftp curl wget zip git &&\
  pip3 install paramiko requests aiohttp urllib3 flask pyminizip\
  pyyaml scapy impacket pwntools cryptography pycryptodome &&\
- useradd -m -u 1000 user
+ useradd -m -u 1000 user &&\
+ echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config &&\
+ ln -sf /usr/bin/python3 /usr/bin/python
 
 RUN mkdir /usr/share/wordlists
 COPY ./rockyou-20.txt /usr/share/wordlists/rockyou.txt
