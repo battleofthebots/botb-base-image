@@ -1,12 +1,22 @@
 # BOTB Base
 This repository defines the base image of the Battle of the Bots competition
 
-## How to use
+## How to use for CI/CD
 To use this image
 1. Generate a personal access token in github with permission to read:packages at https://github.com/settings/tokens/new
 1. Copy your token, save it somewhere if you would like
 1. Docker login to ghcr `echo $TOKEN | docker login ghcr.io -u USERNAME --password-stdin` or paste in your password
 1. Use image as normal (e.g. `docker pull ghcr.io/battleofthebots/botb-base-image:latest`)
+
+## How to use locally (for competitors)
+
+1. Git clone this repo
+2. Execute the following command to build the docker image:
+```
+$> docker build . -t botb:base-image
+```
+3. Leverage the resources in the base image (listed below) to help build your bot!
+
 
 ## Github Actions
 By default, a challenge's github action cannot pull from `ghcr.io/battleofthebots/botb-base-image`
