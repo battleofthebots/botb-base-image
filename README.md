@@ -13,7 +13,7 @@ To use this image
 1. Git clone this repo
 2. Execute the following command to build the docker image:
 ```
-$> docker build . -t botb:base-image
+$> docker build . -t ghcr.io/battleofthebots/botb-base-image:botb-base-image
 ```
 3. Leverage the resources in the base image (listed below) to help build your bot!
 
